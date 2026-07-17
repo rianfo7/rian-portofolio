@@ -17,18 +17,19 @@ export function SiteNav() {
     <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
         <Link to="/" className="font-display text-lg font-bold tracking-tight">
-          Rian<span className="text-muted-foreground">.</span>
+          Rian Permadi<span className="text-muted-foreground">.</span>
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <Link
               key={l.to}
               to={l.to}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="group relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               activeProps={{ className: "text-foreground" }}
               activeOptions={{ exact: l.to === "/" }}
             >
               {l.label}
+              <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-foreground transition-all duration-300 group-hover:w-full group-[&.text-foreground]:w-full" />
             </Link>
           ))}
         </nav>

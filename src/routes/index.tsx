@@ -61,9 +61,9 @@ function Home() {
           </div>
 
           <div className="mx-auto">
-            <div className="relative h-48 w-48 overflow-hidden rounded-full border-4 border-border bg-muted md:h-60 md:w-60">
+            <div className="relative h-56 w-56 overflow-hidden rounded-full border-4 border-border bg-muted md:h-72 md:w-72">
               <img
-                src="/profile.jpg"
+                src="/images/profile.jpg"
                 alt="Rian Permadi"
                 className="h-full w-full object-cover"
               />
@@ -96,14 +96,29 @@ function Home() {
                 key={p.id}
                 to="/projects/$slug"
                 params={{ slug: p.slug }}
-                className="group flex flex-col justify-between rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-foreground/30 hover:shadow-lg"
+                className="group flex flex-col justify-between rounded-2xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-foreground/30 hover:shadow-lg"
               >
-                <div className="mb-16 h-32 rounded-xl bg-gradient-to-br from-muted to-accent" />
+                <div className="mb-8 h-40 w-full overflow-hidden rounded-xl bg-gradient-to-br from-muted to-accent">
+                  {p.image_url ? (
+                    <img
+                      src={p.image_url}
+                      alt={p.title}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={`/images/${p.slug}.png`}
+                      alt={p.title}
+                      className="h-full w-full object-cover"
+                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                    />
+                  )}
+                </div>
                 <div>
-                  <span className="inline-block rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
+                  <span className="inline-block rounded-full bg-secondary px-3 py-1.5 text-xs font-medium text-secondary-foreground">
                     {p.category || "Project"}
                   </span>
-                  <h3 className="mt-3 font-display text-xl font-semibold">{p.title}</h3>
+                  <h3 className="mt-4 font-display text-xl font-semibold">{p.title}</h3>
                 </div>
               </Link>
             ))}

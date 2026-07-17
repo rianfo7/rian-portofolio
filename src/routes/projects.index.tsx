@@ -36,9 +36,16 @@ function ProjectsList() {
               params={{ slug: p.slug }}
               className="group flex flex-col justify-between rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-1 hover:border-foreground/30 hover:shadow-lg"
             >
-              <div className="mb-16 h-40 overflow-hidden rounded-xl bg-gradient-to-br from-muted to-accent">
-                {p.image_url && (
+              <div className="mb-5 h-40 overflow-hidden rounded-xl bg-gradient-to-br from-muted to-accent">
+                {p.image_url ? (
                   <img src={p.image_url} alt={p.title} className="h-full w-full object-cover" />
+                ) : (
+                  <img
+                    src={`/images/${p.slug}.png`}
+                    alt={p.title}
+                    className="h-full w-full object-cover"
+                    onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  />
                 )}
               </div>
               <div>
@@ -46,6 +53,9 @@ function ProjectsList() {
                   {p.category || "Project"}
                 </span>
                 <h2 className="mt-3 font-display text-xl font-semibold">{p.title}</h2>
+                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                  {p.description || ""}
+                </p>
               </div>
             </Link>
           ))}

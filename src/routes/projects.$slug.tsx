@@ -39,14 +39,14 @@ function ProjectDetail() {
   return (
     <SiteLayout>
       <article className="mx-auto max-w-3xl px-6 py-20 md:py-24">
-        <Link to="/projects" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground">
+        <Link to="/projects" className="mb-10 inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground">
           <ArrowLeft className="h-4 w-4" /> Back to Projects
         </Link>
 
-        <span className="mt-8 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
+        <span className="inline-block rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
           {project.category || "Project"}
         </span>
-        <h1 className="mt-3 font-display text-5xl font-bold leading-tight md:text-6xl">{project.title}</h1>
+        <h1 className="mt-4 font-display text-5xl font-bold leading-tight md:text-6xl">{project.title}</h1>
 
         {project.image_url && (
           <img src={project.image_url} alt={project.title} className="mt-10 w-full rounded-2xl border border-border" />
