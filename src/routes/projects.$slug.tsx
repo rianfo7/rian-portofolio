@@ -43,10 +43,11 @@ function ProjectDetail() {
           <ArrowLeft className="h-4 w-4" /> Back to Projects
         </Link>
 
-        <span className="inline-block rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
+        <h1 className="font-display text-5xl font-bold leading-tight md:text-6xl">{project.title}</h1>
+
+        <span className="mt-4 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">
           {project.category || "Project"}
         </span>
-        <h1 className="mt-4 font-display text-5xl font-bold leading-tight md:text-6xl">{project.title}</h1>
 
         {project.image_url && (
           <img src={project.image_url} alt={project.title} className="mt-10 w-full rounded-2xl border border-border" />
