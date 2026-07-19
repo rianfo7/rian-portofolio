@@ -16,13 +16,16 @@ export function SiteFooter() {
           >
             <Github className="h-4 w-4" />
           </a>
-          <span
-            className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground"
-            title="LinkedIn coming soon"
+          <a
+            href="https://www.linkedin.com/in/rian-permadi-825a24395"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
+            aria-label="LinkedIn"
           >
             <Linkedin className="h-3.5 w-3.5" />
-            Coming soon
-          </span>
+            LinkedIn
+          </a>
         </div>
       </div>
     </footer>
